@@ -121,7 +121,7 @@ export default function Home() {
         <div id="skill-container" className="container mx-auto items-center ">
           <div id="skill-text-container" className="flex flex-col justify-center items-center">
             <h1 className="text-gray-300 text-5xl font-medium text-center">Experienced in building application using popular frameworks</h1>
-            <p className="text-gray-300 mt-8 text-md font-normal italic text-left">"A Developer is cursed to learn technology forever, for he is both the slave and its master"</p>
+            <p className="text-gray-300 mt-8 text-md font-normal italic text-left">A Developer is cursed to learn technology forever, for he is both the slave and its master</p>
           </div>
         </div>
 
