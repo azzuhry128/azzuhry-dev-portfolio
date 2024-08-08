@@ -1,113 +1,171 @@
 import Image from "next/image";
 
+const slides = [
+  "/trashtalk.png",
+  "/material.png", 
+  "/homecare.png"
+]
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex flex-col bg-custom-black-background">
+      <nav className="p-4">
+        <div className="flex">
+          <div className="flex flex-1 w-32 ml-4">
+            <a href="/" className="text-yellow-300 text-2xl">Azzuhry</a>
+            <a href="/" className="text-gray-300 text-2xl">.github.io</a>
+          </div>
+
+          <div className="flex flex-1 justify-center gap-14">
+            <a href="/about" className="font-medium text-gray-300 rounded p-2 hover:bg-green-400 hover:text-black duration-300 ease-in-out">About</a>
+            <a href="#" className="font-medium text-gray-300 rounded p-2 hover:bg-green-400 hover:text-black duration-300 ease-in-out">Projects</a>
+            <a href="#" className="font-medium text-gray-300 rounded p-2 hover:bg-green-400 hover:text-black duration-300 ease-in-out">Services</a>
+          </div>
+
+          <div className="flex-1">
+          </div>
         </div>
-      </div>
+      </nav>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <section id="website-content" className="h-screen">
+        <section id="intro-section" className="flex flex-1 flex-row my-40 mx-52">
+          <div className="my-auto ">
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+            <div className="flex gap-1">
+              <h3 className="text-yellow-300">Hello</h3>
+              <h3 className="text-gray-300">there! my name is</h3>
+            </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            <div className="flex mt-3 text-5xl">
+              <h1 className="text-gray-300">Rofif Azzuhry</h1>
+            </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+            <div className="flex mt-7 mb-7 gap-1">
+              <h3 className="text-gray-300">i build web and mobile app using</h3>
+              <h3 className="text-blue-300">flutter</h3>
+              <h3 className="text-gray-300">and</h3>
+              <h3 className="text-yellow-300">javascript</h3>
+            </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+            <div>
+              <a href="/about" >
+                <button className="rounded w-64 h-16 bg-green-400 text-custom-black-background font-medium text-2xl hover:bg-green-700 duration-300 ease-in-out">About Me</button>
+              </a>
+            </div>
+          </div>
+
+          <div className="flex flex-1 flex-col items-end justify-evenly">
+              <a href="https://www.instagram.com/rofif_azzuhry/">
+                <Image className="rounded p-1 hover:bg-custom-card-color  duration-300 ease-in-out" src="/svg/icons8-instagram.svg" alt="instagram" width={32} height={32}/>
+              </a>
+
+              <a href="https://github.com/azzuhry128">
+                <Image className="rounded p-1 hover:bg-custom-card-color  duration-300 ease-in-out" src="/svg/icons8-github.svg" alt="instagram" width={32} height={32}/>
+              </a>
+
+              <a href="www.linkedin.com/in/muhammad-azzuhry">
+                <Image className="rounded p-1 hover:bg-custom-card-color  duration-300 ease-in-out" src="/svg/icons8-linkedin.svg" alt="instagram" width={32} height={32}/>
+              </a>
+          </div>
+        </section>
+        <section id="recent-projects">
+          <div className="flex flex-col mx-52">
+            <h1 className="text-4xl text-gray-300 mb-8">Recent Projects</h1>
+            <div className="flex flex-row justify-between gap-12 overflow-x-auto">
+
+              <div id="card-container" className="flex p-2 m-2 rounded-lg bg-custom-card-color drop-shadow-xl">
+                <div id="logo-container">
+                  <div className="w-72">
+                    <img src="/trashtalk.png" className="rounded-md"></img>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-between ml-4">
+                  <h1 className="font-medium text-2xl mb-2 text-gray-300">Trashtalk</h1>
+                  <p className="text-gray-300 w-52 text-xs">trashtalk is a fast, easy to use, free of charge web based chat app. it has features that are commonly found in major chatting app like WhatsApp and Telegram. or that is how it should’ve become</p>
+                  <button className="rounded bg-green-400 w-16 h-6 mt-6 text-sm">View</button>
+                </div>
+              </div>
+
+              <div id="card-container" className="flex p-2 m-2 rounded-lg bg-custom-card-color drop-shadow-xl">
+                <div id="logo-container">
+                  <div className="w-72">
+                    <img src="/material.png" className="rounded-md"></img>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-between ml-4">
+                  <h1 className="font-medium text-2xl mb-2 text-gray-300">RAB desktop app</h1>
+                  <p className="text-gray-300 w-52 text-xs">Desktop class app plan, predict, and calculate estimated cost of construction project. Currently in development </p>
+                  <button className="rounded bg-green-400 w-16 h-6 mt-6 text-sm">View</button>
+                </div>
+              </div>
+
+              <div id="card-container" className="flex p-2 m-2 rounded-lg bg-custom-card-color drop-shadow-xl">
+                <div id="logo-container">
+                  <div className="w-72">
+                    <img src="/homecare.png" className="rounded-md"></img>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-between ml-4">
+                  <h1 className="font-medium text-2xl mb-2 text-gray-300">Home Care</h1>
+                  <p className="text-gray-300 w-52 text-xs">A system comprised of 2 android app for doctors and patients, and a web app for hospital admins. Aimed to deliver best in class medical care to patients</p>
+                  <button className="rounded bg-green-400 w-16 h-6 mt-6 text-sm">View</button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="skills">
+        <div id="skill-container" className="container mx-auto items-center ">
+          <div id="skill-text-container" className="flex flex-col justify-center items-center">
+            <h1 className="text-gray-300 text-5xl font-medium text-center">Experienced in building application using popular frameworks</h1>
+            <p className="text-gray-300 mt-8 text-md font-normal italic text-left">"A Developer is cursed to learn technology forever, for he is both the slave and its master"</p>
+          </div>
+        </div>
+
+        <div id="skill-images-container" className="container mx-auto rounded-lg grid grid-rows-2 grid-cols-3 mt-4 h-96 bg-slate-900">
+          <div className="flex justify-center items-center row-span-2 hover:bg-slate-950 duration-500 ease-in-out">
+            <div className="flex flex-col justify-center items-center">
+              <Image src="/svg/icons8-javascript-yellow.svg" width={72} height={72} alt="javascript"/>
+              <h1 className="text-4xl text-gray-300">Javascript</h1>
+            </div>
+          </div>
+          <div className="flex justify-center items-center hover:bg-slate-950 duration-500 ease-in-out">
+            <div className="flex flex-col justify-center items-center">
+              <Image src="/svg/icons8-tailwindcss.svg" width={72} height={72} alt="tailwind"/>
+              <h1 className="text-4xl text-gray-300">TailwindCSS</h1>
+            </div>
+          </div>
+          <div className="flex justify-center items-center hover:bg-slate-950 duration-500 ease-in-out">
+            <div className="flex flex-col justify-center items-center">
+              <Image src="/svg/icons8-react.svg" width={72} height={72} alt="react"/>
+              <h1 className="text-4xl text-gray-300">ReactJS</h1>
+            </div>
+          </div>
+          <div className="flex justify-center items-center hover:bg-slate-950 duration-500 ease-in-out">
+            <div className="flex flex-col justify-center items-center">
+              <Image src="/svg/icons8-express-js-yellow.svg" width={72} height={72} alt="express"/>
+              <h1 className="text-4xl text-gray-300">ExpressJS</h1>
+            </div>
+          </div>
+          <div className="flex justify-center items-center hover:bg-slate-950 duration-500 ease-in-out">
+            <div className="flex flex-col justify-center items-center">
+              <Image src="/svg/icons8-flutter.svg" width={72} height={72} alt="flutter"/>
+              <h1 className="text-4xl text-gray-300">Flutter</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="flex flex-row justify-center items-center gap-2 h-24 mt-24 bg-slate-950">
+        <h1 className="text-gray-300 text-xl">made with</h1>
+        <div className="flex flex-row gap-1 justify-center items-center">
+          <h1 className="text-cyan-600 text-xl">TailwindCSS</h1>
+          <Image src="/svg/icons8-tailwindcss.svg" width={32} height={32} alt="tailwind"/>
+        </div>
+      </footer>
     </main>
   );
 }
