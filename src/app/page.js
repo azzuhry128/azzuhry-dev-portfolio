@@ -76,7 +76,7 @@ export default function Home() {
               <div id="card-container" className="flex p-2 m-2 rounded-lg bg-custom-card-color drop-shadow-xl">
                 <div id="logo-container">
                   <div className="w-72">
-                    <img src="/trashtalk.png" className="rounded-md"></img>
+                    <Image src="/trashtalk.png" className="rounded-md" width={36} height={36} alt="trashtalk"></Image>
                   </div>
                 </div>
                 <div className="flex flex-col justify-between ml-4">
@@ -89,7 +89,7 @@ export default function Home() {
               <div id="card-container" className="flex p-2 m-2 rounded-lg bg-custom-card-color drop-shadow-xl">
                 <div id="logo-container">
                   <div className="w-72">
-                    <img src="/material.png" className="rounded-md"></img>
+                    <Image src="/material.png" className="rounded-md" width={36} height={36} alt="RAB app"></Image>
                   </div>
                 </div>
                 <div className="flex flex-col justify-between ml-4">
@@ -102,7 +102,7 @@ export default function Home() {
               <div id="card-container" className="flex p-2 m-2 rounded-lg bg-custom-card-color drop-shadow-xl">
                 <div id="logo-container">
                   <div className="w-72">
-                    <img src="/homecare.png" className="rounded-md"></img>
+                    <Image src="/homecare.png" className="rounded-md" width={36} height={36} alt="homecare"></Image>
                   </div>
                 </div>
                 <div className="flex flex-col justify-between ml-4">
