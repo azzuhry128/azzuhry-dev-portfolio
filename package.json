@@ -6,15 +6,20 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:worker": "cloudflare",
+    "dev:worker": "wrangler dev --port 8771",
+    "preview:worker": "npm run build:worker && npm run dev:worker",
+    "deploy:worker": "npm run build:worker && wrangler deploy"
   },
   "dependencies": {
     "boxicons": "^2.1.4",
-    "next": "14.2.5",
+    "next": "^14.2.17",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^0.2.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
