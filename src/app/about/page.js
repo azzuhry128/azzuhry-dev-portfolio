@@ -3,23 +3,6 @@ import Image from "next/image";
 export default function Landing() {
     return (
     <main className="flex flex-col bg-custom-black-background h-screen">
-        <nav className="p-4">
-            <div className="flex">
-            <div className="flex flex-1 w-32 ml-4">
-                <a href="/" className="text-yellow-300 text-2xl">Azzuhry</a>
-                <a href="/" className="text-gray-300 text-2xl">.github.io</a>
-            </div>
-
-            <div className="flex flex-1 justify-center gap-14">
-                <a href="/about" className="font-medium text-gray-300 rounded p-2 hover:bg-green-400 hover:text-black duration-300 ease-in-out">About</a>
-                <a href="#" className="font-medium text-gray-300 rounded p-2 hover:bg-green-400 hover:text-black duration-300 ease-in-out">Projects</a>
-                <a href="#" className="font-medium text-gray-300 rounded p-2 hover:bg-green-400 hover:text-black duration-300 ease-in-out">Services</a>
-            </div>
-
-            <div className="flex-1">
-            </div>
-            </div>
-        </nav>
 
         <div className="container mx-auto my-auto">
             <div className="flex flex-col justify-center items-center gap-4">

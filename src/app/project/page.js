@@ -1,29 +1,35 @@
+"use client";
+
+import glide from "@glidejs/glide"
+// import controls from "@glidejs/glide"
+// import breakpoint from "@glidejs/glide"
+import { useEffect } from "react"
+
 export default function Project() {
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            new glide('.glide').mount()
+        }
+    }, [])
+    
     return(
     <main className="bg-custom-black-background h-screen">
-        <nav className="p-4">
-            <div className="flex">
-            <div className="flex flex-1 w-32">
-                <a href="#" className=" text-yellow-300">Azzuhry</a>
-                <a href="#" className="text-gray-300">.my.id</a>
-            </div>
+        <section>
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide">0</li>
+                        <li class="glide__slide">1</li>
+                        <li class="glide__slide">2</li>
+                    </ul>
+                </div>  
 
-            <div className="flex flex-1 justify-center gap-14">
-                <a href="#" className="font-medium text-gray-300 rounded p-2 hover:bg-green-400 hover:text-black duration-300 ease-in-out">About</a>
-                <a href="#" className="font-medium text-gray-300 rounded p-2 hover:bg-green-400 hover:text-black duration-300 ease-in-out">Projects</a>
-                <a href="#" className="font-medium text-gray-300 rounded p-2 hover:bg-green-400 hover:text-black duration-300 ease-in-out">Services</a>
-            </div>
-
-            <div className="flex-1">
-                <div>
-                    <h1></h1>
+                <div data-glide-el="controls">
+                    <button data-glide-dir="<">Prev</button>
+                    <button data-glide-dir=">">Next</button>
                 </div>
             </div>
-
-            </div>
-        </nav>
-        <section></section>
+        </section>
     </main>
-
     )
 }

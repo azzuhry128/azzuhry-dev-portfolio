@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +12,35 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-custom-black-background">
+        <nav className="p-4">
+          <div className="flex">
+            <div className="flex flex-1 w-32 ml-4">
+              <a href="/" className="text-yellow-300 text-2xl">Azzuhry</a>
+              <a href="/" className="text-gray-300 text-2xl">.github.io</a>
+            </div>
+
+            <div className="flex flex-1 justify-center gap-14">
+              <a href="/about" className="font-medium text-gray-300 rounded p-2 hover:bg-green-400 hover:text-black duration-300 ease-in-out">About</a>
+              <a href="/project" className="font-medium text-gray-300 rounded p-2 hover:bg-green-400 hover:text-black duration-300 ease-in-out">Projects</a>
+              <a href="#" className="font-medium text-gray-300 rounded p-2 hover:bg-green-400 hover:text-black duration-300 ease-in-out">Services</a>
+            </div>
+
+            <div className="flex-1">
+            </div>
+          </div>
+        </nav>
+
+        {children}
+
+        <footer className="flex flex-row justify-center items-center gap-2 h-24 mt-24 bg-slate-950">
+        <h1 className="text-gray-300 text-xl">made with</h1>
+        <div className="flex flex-row gap-1 justify-center items-center">
+          <h1 className="text-cyan-600 text-xl">TailwindCSS</h1>
+          <Image src="/svg/icons8-tailwindcss.svg" width={32} height={32} alt="tailwind"/>
+        </div>
+      </footer>
+      </body>
     </html>
   );
 }
