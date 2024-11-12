@@ -1,17 +1,4 @@
-"use client";
-
-import glide from "@glidejs/glide"
-// import controls from "@glidejs/glide"
-// import breakpoint from "@glidejs/glide"
-import { useEffect } from "react"
-
 export default function Project() {
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            new glide('.glide').mount()
-        }
-    }, [])
-    
     return(
     <main className="bg-custom-black-background h-screen">
         <section>

@@ -4,56 +4,65 @@ const imagesData = [
   {
     id: 1,
     src: "/trashtalk.png",
-    description: "Trashtalk is a fast, easy to use, free of charge web-based chat app. It has features commonly found in major chatting apps like WhatsApp and Telegram."
+    description:
+      "Trashtalk is a fast, easy to use, free of charge web-based chat app. It has features commonly found in major chatting apps like WhatsApp and Telegram.",
   },
   {
     id: 2,
     src: "/material.png",
-    description: "Material is a project management tool that helps teams stay organized and on track. It offers a variety of features to manage tasks and collaborate efficiently."
+    description:
+      "Material is a project management tool that helps teams stay organized and on track. It offers a variety of features to manage tasks and collaborate efficiently.",
   },
   {
     id: 3,
     src: "/homecare.png",
-    description: "Homecare is a platform that connects caregivers with those in need of at-home care services. It aims to provide reliable and compassionate care."
-  }
+    description:
+      "Homecare is a platform that connects caregivers with those in need of at-home care services. It aims to provide reliable and compassionate care.",
+  },
 ];
-
 
 const recentProjectsGenerator = () => {
   return imagesData.map((image) => (
-    <div key={image.id} id="card-container" className="flex relative group rounded-lg bg-custom-card-color drop-shadow-xl">
+    <div
+      key={image.id}
+      id="card-container"
+      className="group relative flex rounded-lg bg-custom-card-color drop-shadow-xl"
+    >
       <div id="logo-container">
-        <div className="w-[1000px] h-max">
+        <div className="h-max w-[1000px]">
           <img src={image.src} className="rounded-md"></img>
         </div>
       </div>
-      <div className="absolute bottom-0 justify-end p-4 w-full h-full flex flex-col opacity-0 transition ease-in-out duration-300 group-hover:opacity-100 group-hover:backdrop-blur-sm bg-black/75">
-        <h1 className="font-medium text-2xl mb-2 text-gray-300">Trashtalk</h1>
-        <p className="text-gray-300 w-52 text-xs">trashtalk is a fast, easy to use, free of charge web based chat app. it has features that are commonly found in major chatting app like WhatsApp and Telegram. or that is how it should’ve become</p>
-        <button className="rounded bg-green-400 w-16 h-6 mt-6 text-sm">View</button>
+      <div className="absolute bottom-0 flex h-full w-full flex-col justify-end bg-black/75 p-4 opacity-0 transition duration-300 ease-in-out group-hover:opacity-100 group-hover:backdrop-blur-sm">
+        <h1 className="mb-2 text-2xl font-medium text-gray-300">Trashtalk</h1>
+        <p className="w-52 text-xs text-gray-300">
+          trashtalk is a fast, easy to use, free of charge web based chat app.
+          it has features that are commonly found in major chatting app like
+          WhatsApp and Telegram. or that is how it should’ve become
+        </p>
+        <button className="mt-6 h-6 w-16 rounded bg-green-400 text-sm">
+          View
+        </button>
       </div>
     </div>
-  ))
-}
+  ));
+};
 
 export default function Home() {
-
   return (
     <main className="flex flex-col bg-custom-black-background">
-
-      <section id="intro-section" className="flex flex-1 flex-row my-40 mx-52">
-        <div className="my-auto ">
-
+      <section id="intro-section" className="mx-52 my-40 flex flex-1 flex-row">
+        <div className="my-auto">
           <div className="flex gap-1">
             <h3 className="text-yellow-300">Hello</h3>
             <h3 className="text-gray-300">there! my name is</h3>
           </div>
 
-          <div className="flex mt-3 text-5xl">
+          <div className="mt-3 flex text-5xl">
             <h1 className="text-gray-300">Rofif Azzuhry</h1>
           </div>
 
-          <div className="flex mt-7 mb-7 gap-1">
+          <div className="mb-7 mt-7 flex gap-1">
             <h3 className="text-gray-300">i build web and mobile app using</h3>
             <h3 className="text-blue-300">flutter</h3>
             <h3 className="text-gray-300">and</h3>
@@ -61,72 +70,130 @@ export default function Home() {
           </div>
 
           <div>
-            <a href="/about" >
-              <button className="rounded w-64 h-16 bg-green-400 text-custom-black-background font-medium text-2xl hover:bg-green-700 duration-300 ease-in-out">About Me</button>
+            <a href="/about">
+              <button className="h-16 w-64 rounded bg-green-400 text-2xl font-medium text-custom-black-background duration-300 ease-in-out hover:bg-green-700">
+                About Me
+              </button>
             </a>
           </div>
         </div>
 
         <div className="flex flex-1 flex-col items-end justify-evenly">
-            <a href="https://www.instagram.com/rofif_azzuhry/">
-              <Image className="rounded p-1 hover:bg-custom-card-color  duration-300 ease-in-out" src="/svg/icons8-instagram.svg" alt="instagram" width={32} height={32}/>
-            </a>
+          <a href="https://www.instagram.com/rofif_azzuhry/">
+            <Image
+              className="rounded p-1 duration-300 ease-in-out hover:bg-custom-card-color"
+              src="/svg/icons8-instagram.svg"
+              alt="instagram"
+              width={32}
+              height={32}
+            />
+          </a>
 
-            <a href="https://github.com/azzuhry128">
-              <Image className="rounded p-1 hover:bg-custom-card-color  duration-300 ease-in-out" src="/svg/icons8-github.svg" alt="instagram" width={32} height={32}/>
-            </a>
+          <a href="https://github.com/azzuhry128">
+            <Image
+              className="rounded p-1 duration-300 ease-in-out hover:bg-custom-card-color"
+              src="/svg/icons8-github.svg"
+              alt="instagram"
+              width={32}
+              height={32}
+            />
+          </a>
 
-            <a href="www.linkedin.com/in/muhammad-azzuhry">
-              <Image className="rounded p-1 hover:bg-custom-card-color  duration-300 ease-in-out" src="/svg/icons8-linkedin.svg" alt="instagram" width={32} height={32}/>
-            </a>
+          <a href="www.linkedin.com/in/muhammad-azzuhry">
+            <Image
+              className="rounded p-1 duration-300 ease-in-out hover:bg-custom-card-color"
+              src="/svg/icons8-linkedin.svg"
+              alt="instagram"
+              width={32}
+              height={32}
+            />
+          </a>
         </div>
       </section>
 
       <section id="recent-projects">
-        <div className="flex flex-col mx-52">
-          <h1 className="text-4xl text-gray-300 mb-8 mx-auto">Recent Projects</h1>
-          <div className="flex flex-row justify-between gap-4 overflow-x-scroll overflow-y-clip">
+        <div className="mx-52 flex flex-col">
+          <h1 className="mx-auto mb-8 text-4xl text-gray-300">
+            Recent Projects
+          </h1>
+          <div className="flex flex-row justify-between gap-4 overflow-y-clip overflow-x-scroll">
             {recentProjectsGenerator()}
           </div>
         </div>
       </section>
 
       <section id="skills">
-        <div id="skill-container" className="container mx-auto items-center ">
-          <div id="skill-text-container" className="flex flex-col justify-center items-center">
-            <h1 className="text-gray-300 text-5xl font-medium text-center">Experienced in building application using popular frameworks</h1>
-            <p className="text-gray-300 mt-8 text-md font-normal italic text-left">A Developer is cursed to learn technology forever, for he is both the slave and its master</p>
+        <div id="skill-container" className="container mx-auto items-center">
+          <div
+            id="skill-text-container"
+            className="flex flex-col items-center justify-center"
+          >
+            <h1 className="text-center text-5xl font-medium text-gray-300">
+              Experienced in building application using popular frameworks
+            </h1>
+            <p className="text-md mt-8 text-left font-normal italic text-gray-300">
+              A Developer is cursed to learn technology forever, for he is both
+              the slave and its master
+            </p>
           </div>
         </div>
 
-        <div id="skill-images-container" className="container mx-auto rounded-lg grid grid-rows-2 grid-cols-3 mt-4 h-96 bg-slate-900">
-          <div className="flex justify-center items-center row-span-2 hover:bg-slate-950 duration-500 ease-in-out">
-            <div className="flex flex-col justify-center items-center">
-              <Image src="/svg/icons8-javascript-yellow.svg" width={72} height={72} alt="javascript"/>
+        <div
+          id="skill-images-container"
+          className="container mx-auto mt-4 grid h-96 grid-cols-3 grid-rows-2 rounded-lg bg-slate-900"
+        >
+          <div className="row-span-2 flex items-center justify-center duration-500 ease-in-out hover:bg-slate-950">
+            <div className="flex flex-col items-center justify-center">
+              <Image
+                src="/svg/icons8-javascript-yellow.svg"
+                width={72}
+                height={72}
+                alt="javascript"
+              />
               <h1 className="text-4xl text-gray-300">Javascript</h1>
             </div>
           </div>
-          <div className="flex justify-center items-center hover:bg-slate-950 duration-500 ease-in-out">
-            <div className="flex flex-col justify-center items-center">
-              <Image src="/svg/icons8-tailwindcss.svg" width={72} height={72} alt="tailwind"/>
+          <div className="flex items-center justify-center duration-500 ease-in-out hover:bg-slate-950">
+            <div className="flex flex-col items-center justify-center">
+              <Image
+                src="/svg/icons8-tailwindcss.svg"
+                width={72}
+                height={72}
+                alt="tailwind"
+              />
               <h1 className="text-4xl text-gray-300">TailwindCSS</h1>
             </div>
           </div>
-          <div className="flex justify-center items-center hover:bg-slate-950 duration-500 ease-in-out">
-            <div className="flex flex-col justify-center items-center">
-              <Image src="/svg/icons8-react.svg" width={72} height={72} alt="react"/>
+          <div className="flex items-center justify-center duration-500 ease-in-out hover:bg-slate-950">
+            <div className="flex flex-col items-center justify-center">
+              <Image
+                src="/svg/icons8-react.svg"
+                width={72}
+                height={72}
+                alt="react"
+              />
               <h1 className="text-4xl text-gray-300">ReactJS</h1>
             </div>
           </div>
-          <div className="flex justify-center items-center hover:bg-slate-950 duration-500 ease-in-out">
-            <div className="flex flex-col justify-center items-center">
-              <Image src="/svg/icons8-express-js-yellow.svg" width={72} height={72} alt="express"/>
+          <div className="flex items-center justify-center duration-500 ease-in-out hover:bg-slate-950">
+            <div className="flex flex-col items-center justify-center">
+              <Image
+                src="/svg/icons8-express-js-yellow.svg"
+                width={72}
+                height={72}
+                alt="express"
+              />
               <h1 className="text-4xl text-gray-300">ExpressJS</h1>
             </div>
           </div>
-          <div className="flex justify-center items-center hover:bg-slate-950 duration-500 ease-in-out">
-            <div className="flex flex-col justify-center items-center">
-              <Image src="/svg/icons8-flutter.svg" width={72} height={72} alt="flutter"/>
+          <div className="flex items-center justify-center duration-500 ease-in-out hover:bg-slate-950">
+            <div className="flex flex-col items-center justify-center">
+              <Image
+                src="/svg/icons8-flutter.svg"
+                width={72}
+                height={72}
+                alt="flutter"
+              />
               <h1 className="text-4xl text-gray-300">Flutter</h1>
             </div>
           </div>
