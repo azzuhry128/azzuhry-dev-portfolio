@@ -14,9 +14,11 @@
   },
   "dependencies": {
     "boxicons": "^2.1.4",
+    "motion": "^11.11.14",
     "next": "^14.2.17",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "swiper": "^11.1.14"
   },
   "devDependencies": {
     "@opennextjs/cloudflare": "^0.2.1",

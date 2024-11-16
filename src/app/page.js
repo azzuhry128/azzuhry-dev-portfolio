@@ -1,3 +1,13 @@
+"use client";
+
+import { Navigation, Pagination, EffectCoverflow, Scrollbar } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
 import Image from "next/image";
 
 const imagesData = [
@@ -21,31 +31,57 @@ const imagesData = [
   },
 ];
 
-const recentProjectsGenerator = () => {
-  return imagesData.map((image) => (
-    <div
-      key={image.id}
-      id="card-container"
-      className="group relative flex rounded-lg bg-custom-card-color drop-shadow-xl"
+const RecentProjectsGenerator = () => {
+  return (
+    <Swiper
+      modules={[EffectCoverflow, Navigation, Pagination, Scrollbar]}
+      effect="coverflow"
+      navigation
+      grabCursor={true}
+      centeredSlides={true}
+      slidesPerView={2}
+      initialSlide={2}
+      pagination={{ clickable: true }}
+      scrollbar={{ draggable: true }}
+      slideToClickedSlide={true}
+      coverflowEffect={{
+        rotate: 50,
+        stretch: 80,
+        depth: 350,
+        modifier: 1,
+        slideShadows: true,
+      }}
     >
-      <div id="logo-container">
-        <div className="h-max w-[1000px]">
-          <img src={image.src} className="rounded-md"></img>
-        </div>
-      </div>
-      <div className="absolute bottom-0 flex h-full w-full flex-col justify-end bg-black/75 p-4 opacity-0 transition duration-300 ease-in-out group-hover:opacity-100 group-hover:backdrop-blur-sm">
-        <h1 className="mb-2 text-2xl font-medium text-gray-300">Trashtalk</h1>
-        <p className="w-52 text-xs text-gray-300">
-          trashtalk is a fast, easy to use, free of charge web based chat app.
-          it has features that are commonly found in major chatting app like
-          WhatsApp and Telegram. or that is how it should’ve become
-        </p>
-        <button className="mt-6 h-6 w-16 rounded bg-green-400 text-sm">
-          View
-        </button>
-      </div>
-    </div>
-  ));
+      {imagesData.map((image, index) => {
+        return (
+          <SwiperSlide key={image.id}>
+            <div
+              id="card-container"
+              className="group relative flex rounded-md bg-custom-card-color drop-shadow-xl"
+            >
+              <div className="h-max w-max">
+                <img src={image.src} className="rounded-md"></img>
+              </div>
+              <div className="absolute bottom-0 flex h-full w-full flex-col justify-end rounded-md bg-black/75 p-4 opacity-0 transition duration-300 ease-in-out group-hover:opacity-100 group-hover:backdrop-blur-sm">
+                <h1 className="mb-2 text-2xl font-semibold text-gray-300">
+                  Trashtalk
+                </h1>
+                <p className="w-3/4 text-sm font-medium text-gray-300">
+                  trashtalk is a fast, easy to use, free of charge web based
+                  chat app. it has features that are commonly found in major
+                  chatting app like WhatsApp and Telegram. or that is how it
+                  should’ve become
+                </p>
+                <button className="mt-6 h-6 w-16 rounded bg-green-400 text-sm font-bold">
+                  View
+                </button>
+              </div>
+            </div>
+          </SwiperSlide>
+        );
+      })}
+    </Swiper>
+  );
 };
 
 export default function Home() {
@@ -117,7 +153,7 @@ export default function Home() {
             Recent Projects
           </h1>
           <div className="flex flex-row justify-between gap-4 overflow-y-clip overflow-x-scroll">
-            {recentProjectsGenerator()}
+            {RecentProjectsGenerator()}
           </div>
         </div>
       </section>

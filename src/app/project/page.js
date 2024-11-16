@@ -1,22 +1,29 @@
-export default function Project() {
-    return(
-    <main className="bg-custom-black-background h-screen">
-        <section>
-            <div class="glide">
-                <div class="glide__track" data-glide-el="track">
-                    <ul class="glide__slides">
-                        <li class="glide__slide">0</li>
-                        <li class="glide__slide">1</li>
-                        <li class="glide__slide">2</li>
-                    </ul>
-                </div>  
+"use client";
 
-                <div data-glide-el="controls">
-                    <button data-glide-dir="<">Prev</button>
-                    <button data-glide-dir=">">Next</button>
-                </div>
-            </div>
-        </section>
-    </main>
-    )
+import { Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
+export default function Project() {
+  return (
+    <Swiper
+      modules={[Navigation, Pagination]}
+      spaceBetween={50}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      scrollbar={{ draggable: true }}
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log("slide change")}
+    >
+      <SwiperSlide>Slide 1</SwiperSlide>
+      <SwiperSlide>Slide 2</SwiperSlide>
+      <SwiperSlide>Slide 3</SwiperSlide>
+      <SwiperSlide>Slide 4</SwiperSlide>
+    </Swiper>
+  );
 }
