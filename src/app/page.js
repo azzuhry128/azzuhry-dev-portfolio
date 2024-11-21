@@ -1,13 +1,23 @@
 "use client";
 
-import { Navigation, Pagination, EffectCoverflow, Scrollbar } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  EffectCoverflow,
+  Scrollbar,
+} from "swiper/modules";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import { AnimatePresence, motion } from "motion/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
+import BottomNavbarComponent from "./components/bottom-navbar-component";
+import { useState } from "react";
 import Image from "next/image";
 
 const imagesData = [
@@ -31,210 +41,197 @@ const imagesData = [
   },
 ];
 
-const RecentProjectsGenerator = () => {
-  return (
-    <Swiper
-      modules={[EffectCoverflow, Navigation, Pagination, Scrollbar]}
-      effect="coverflow"
-      navigation
-      grabCursor={true}
-      centeredSlides={true}
-      slidesPerView={2}
-      initialSlide={2}
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      slideToClickedSlide={true}
-      coverflowEffect={{
-        rotate: 50,
-        stretch: 80,
-        depth: 350,
-        modifier: 1,
-        slideShadows: true,
-      }}
-    >
-      {imagesData.map((image, index) => {
-        return (
-          <SwiperSlide key={image.id}>
-            <div
-              id="card-container"
-              className="group relative flex rounded-md bg-custom-card-color drop-shadow-xl"
-            >
-              <div className="h-max w-max">
-                <img src={image.src} className="rounded-md"></img>
-              </div>
-              <div className="absolute bottom-0 flex h-full w-full flex-col justify-end rounded-md bg-black/75 p-4 opacity-0 transition duration-300 ease-in-out group-hover:opacity-100 group-hover:backdrop-blur-sm">
-                <h1 className="mb-2 text-2xl font-semibold text-gray-300">
-                  Trashtalk
-                </h1>
-                <p className="w-3/4 text-sm font-medium text-gray-300">
-                  trashtalk is a fast, easy to use, free of charge web based
-                  chat app. it has features that are commonly found in major
-                  chatting app like WhatsApp and Telegram. or that is how it
-                  should’ve become
-                </p>
-                <button className="mt-6 h-6 w-16 rounded bg-green-400 text-sm font-bold">
-                  View
-                </button>
-              </div>
-            </div>
-          </SwiperSlide>
-        );
-      })}
-    </Swiper>
-  );
+const stackItemVariants = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 300, damping: 24 },
+  },
+  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
 };
 
 export default function Home() {
+  const [isStackButtonOpen, setIsStackButtonOpen] = useState(false);
+
   return (
     <main className="flex flex-col bg-custom-black-background">
-      <section id="intro-section" className="mx-52 my-40 flex flex-1 flex-row">
-        <div className="my-auto">
-          <div className="flex gap-1">
-            <h3 className="text-yellow-300">Hello</h3>
-            <h3 className="text-gray-300">there! my name is</h3>
-          </div>
+      {/* <HeaderComponent /> */}
 
-          <div className="mt-3 flex text-5xl">
-            <h1 className="text-gray-300">Rofif Azzuhry</h1>
-          </div>
-
-          <div className="mb-7 mt-7 flex gap-1">
-            <h3 className="text-gray-300">i build web and mobile app using</h3>
-            <h3 className="text-blue-300">flutter</h3>
-            <h3 className="text-gray-300">and</h3>
-            <h3 className="text-yellow-300">javascript</h3>
-          </div>
-
-          <div>
-            <a href="/about">
-              <button className="h-16 w-64 rounded bg-green-400 text-2xl font-medium text-custom-black-background duration-300 ease-in-out hover:bg-green-700">
-                About Me
-              </button>
-            </a>
-          </div>
-        </div>
-
-        <div className="flex flex-1 flex-col items-end justify-evenly">
-          <a href="https://www.instagram.com/rofif_azzuhry/">
-            <Image
-              className="rounded p-1 duration-300 ease-in-out hover:bg-custom-card-color"
-              src="/svg/icons8-instagram.svg"
-              alt="instagram"
-              width={32}
-              height={32}
-            />
-          </a>
-
-          <a href="https://github.com/azzuhry128">
-            <Image
-              className="rounded p-1 duration-300 ease-in-out hover:bg-custom-card-color"
-              src="/svg/icons8-github.svg"
-              alt="instagram"
-              width={32}
-              height={32}
-            />
-          </a>
-
-          <a href="www.linkedin.com/in/muhammad-azzuhry">
-            <Image
-              className="rounded p-1 duration-300 ease-in-out hover:bg-custom-card-color"
-              src="/svg/icons8-linkedin.svg"
-              alt="instagram"
-              width={32}
-              height={32}
-            />
-          </a>
-        </div>
-      </section>
-
-      <section id="recent-projects">
-        <div className="mx-52 flex flex-col">
-          <h1 className="mx-auto mb-8 text-4xl text-gray-300">
-            Recent Projects
-          </h1>
-          <div className="flex flex-row justify-between gap-4 overflow-y-clip overflow-x-scroll">
-            {RecentProjectsGenerator()}
-          </div>
-        </div>
-      </section>
-
-      <section id="skills">
-        <div id="skill-container" className="container mx-auto items-center">
-          <div
-            id="skill-text-container"
-            className="flex flex-col items-center justify-center"
+      <section id="intro-section">
+        <motion.div className="w-screen text-6xl font-bold text-white">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0, height: "100%" }}
+            transition={{ duration: 0.3 }}
+            className="bg-red-400 p-4 text-8xl"
           >
-            <h1 className="text-center text-5xl font-medium text-gray-300">
-              Experienced in building application using popular frameworks
-            </h1>
-            <p className="text-md mt-8 text-left font-normal italic text-gray-300">
-              A Developer is cursed to learn technology forever, for he is both
-              the slave and its master
-            </p>
-          </div>
-        </div>
+            My name is azzuhry.
+          </motion.h1>
 
-        <div
-          id="skill-images-container"
-          className="container mx-auto mt-4 grid h-96 grid-cols-3 grid-rows-2 rounded-lg bg-slate-900"
-        >
-          <div className="row-span-2 flex items-center justify-center duration-500 ease-in-out hover:bg-slate-950">
-            <div className="flex flex-col items-center justify-center">
-              <Image
-                src="/svg/icons8-javascript-yellow.svg"
-                width={72}
-                height={72}
-                alt="javascript"
-              />
-              <h1 className="text-4xl text-gray-300">Javascript</h1>
-            </div>
-          </div>
-          <div className="flex items-center justify-center duration-500 ease-in-out hover:bg-slate-950">
-            <div className="flex flex-col items-center justify-center">
-              <Image
-                src="/svg/icons8-tailwindcss.svg"
-                width={72}
-                height={72}
-                alt="tailwind"
-              />
-              <h1 className="text-4xl text-gray-300">TailwindCSS</h1>
-            </div>
-          </div>
-          <div className="flex items-center justify-center duration-500 ease-in-out hover:bg-slate-950">
-            <div className="flex flex-col items-center justify-center">
-              <Image
-                src="/svg/icons8-react.svg"
-                width={72}
-                height={72}
-                alt="react"
-              />
-              <h1 className="text-4xl text-gray-300">ReactJS</h1>
-            </div>
-          </div>
-          <div className="flex items-center justify-center duration-500 ease-in-out hover:bg-slate-950">
-            <div className="flex flex-col items-center justify-center">
-              <Image
-                src="/svg/icons8-express-js-yellow.svg"
-                width={72}
-                height={72}
-                alt="express"
-              />
-              <h1 className="text-4xl text-gray-300">ExpressJS</h1>
-            </div>
-          </div>
-          <div className="flex items-center justify-center duration-500 ease-in-out hover:bg-slate-950">
-            <div className="flex flex-col items-center justify-center">
-              <Image
-                src="/svg/icons8-flutter.svg"
-                width={72}
-                height={72}
-                alt="flutter"
-              />
-              <h1 className="text-4xl text-gray-300">Flutter</h1>
-            </div>
-          </div>
-        </div>
+          <motion.div className="p-4">
+            <motion.h1
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.3 }}
+            >
+              I build
+            </motion.h1>
+            <motion.span
+              initial={{ width: "30px", opacity: 0 }}
+              animate={{ width: "100%", opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className="text-justifyfont-bold my-4 block rounded-md bg-red-400 p-4 text-slate-200"
+            >
+              <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+              >
+                Cross Platform Apps
+              </motion.h1>
+            </motion.span>
+            <motion.h1
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.3 }}
+              className="text-5xl"
+            >
+              with emphasis on
+              <motion.span
+                initial={{ width: "30px", opacity: 0 }}
+                animate={{ width: "100%", opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="ml-3 rounded-md text-justify text-4xl font-bold text-red-400"
+              >
+                Performance
+              </motion.span>
+            </motion.h1>
+          </motion.div>
+        </motion.div>
       </section>
+
+      <section id="stack-showcase">
+        <motion.div
+          initial={false}
+          animate={isStackButtonOpen ? "open" : "closed"}
+          className="p-4"
+        >
+          <motion.button
+            whileTap={{ scale: 0.97 }}
+            onClick={() => setIsStackButtonOpen(!isStackButtonOpen)}
+            className="flex h-max items-end rounded-md bg-violet-300 p-4"
+          >
+            <motion.h1 className="text-start text-8xl font-bold capitalize text-slate-950">
+              My stack
+            </motion.h1>
+
+            <motion.div
+              variants={{ open: { rotate: 180 }, closed: { rotate: 0 } }}
+              transition={{ duration: 0.2 }}
+              style={{ originY: 0.5 }}
+              className="mx-4 my-7 flex items-end justify-end"
+            >
+              <svg width="24" height="24" viewBox="0 0 20 20">
+                <path d="M0 7 L 20 7 L 10 16" />
+              </svg>
+            </motion.div>
+          </motion.button>
+
+          <motion.ul
+            variants={{
+              open: {
+                clipPath: "inset(0% 0% 0% 0% round 10px)",
+                height: "max-content",
+                transition: {
+                  type: "spring",
+                  bounce: 0,
+                  duration: 0.7,
+                  delayChildren: 0.3,
+                  staggerChildren: 0.05,
+                },
+              },
+              closed: {
+                clipPath: "inset(10% 50% 90% 50% round 10px)",
+                height: "0px",
+                transition: {
+                  type: "spring",
+                  bounce: 0,
+                  duration: 0.3,
+                },
+              },
+            }}
+            className="mt-4 overflow-hidden rounded-md bg-violet-300"
+          >
+            <motion.li
+              variants={stackItemVariants}
+              className="flex flex-auto items-center gap-2 rounded-md p-2"
+            >
+              <motion.img
+                className="h-24 w-24 rounded-md p-2 text-3xl font-bold capitalize text-slate-950"
+                src="/svg/icons8-express-js.svg"
+              />
+
+              <motion.h1 className="ml-8 flex-1 text-4xl font-bold">
+                ExpressJS
+              </motion.h1>
+            </motion.li>
+
+            <motion.li
+              variants={stackItemVariants}
+              className="flex flex-auto items-center gap-2 rounded-md p-2"
+            >
+              <motion.img
+                className="h-24 w-24 rounded-md p-2 text-3xl font-bold capitalize text-slate-950"
+                src="/svg/icons8-react.svg"
+              />
+
+              <motion.h1 className="ml-8 flex-1 text-4xl font-bold">
+                ReactJS
+              </motion.h1>
+            </motion.li>
+
+            <motion.li
+              variants={stackItemVariants}
+              className="flex flex-auto items-center gap-2 rounded-md p-2"
+            >
+              <motion.img
+                className="h-24 w-24 rounded-md p-2 text-3xl font-bold capitalize text-slate-950"
+                src="/svg/icons8-flutter.svg"
+              />
+
+              <motion.h1 className="ml-8 flex-1 text-4xl font-bold">
+                Flutter
+              </motion.h1>
+            </motion.li>
+          </motion.ul>
+        </motion.div>
+      </section>
+
+      <section id="project-showcase">
+        <motion.div className="p-4">
+          <motion.h1 className="text-6xl font-bold text-slate-100">
+            Project Showcase
+          </motion.h1>
+          <Swiper
+            className="mt-2 h-full w-full"
+            spaceBetween={10}
+            slidesPerView={1}
+          >
+            {imagesData.map((image, index) => (
+              <SwiperSlide key={index}>
+                <Image
+                  src={image.src}
+                  alt="Slide image"
+                  className="rounded-md"
+                  width={600}
+                  height={300}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
+      </section>
+      <BottomNavbarComponent />
     </main>
   );
 }
